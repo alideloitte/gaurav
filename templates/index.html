@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Vehicle Pricing Tool</title>
+</head>
+
+<body>
+    <div class="head-row">
+        <img src="static\Deloitte_Logo.png" alt="Logo" class="logo">
+    </div>
+    <div class="sub-header-row">
+        <div class="centered-content"></div>
+        <div id="response-container" class="response-container"></div>
+        <input type="text" class="rounded-input" id="vin-input" placeholder="Enter your VIN number">
+        <button class="submit-button" onclick="submitData()">Submit</button>
+
+    </div>
+    <div class="main-content">
+        <div class="left-div">
+            <div class="icon-buttons-container">
+                <div class="icon-button">
+                    <img src="static\reset-icon.png" alt="Reset Icon" class="icon">
+                    <p>Reset</p>
+                </div>
+                <div class="icon-button">
+                    <img src="static\calculator-icon-2.png" alt="Calculator Icon" class="icon">
+                    <p>Calculate</p>
+                </div>
+            </div>
+            <div class="previous-utilization-inputs">
+                <p>Previous Utilization:</p>
+                <div class="input-group">
+                    <input type="text" placeholder="1 Cycle: .." class="dropdown-input">
+                    <div class="dropdown">
+                        <button class="dropbtn">&#9660;</button>
+                        <div class="dropdown-content">
+                            <a href="#">Leasing</a>
+                            <a href="#">Subscription</a>
+                            <a href="#">Rental</a>
+                            <a href="#">Remarketing</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="2 Cycle: .." class="dropdown-input">
+                    <div class="dropdown">
+                        <button class="dropbtn">&#9660;</button>
+                        <div class="dropdown-content">
+                            <a href="#">Leasing</a>
+                            <a href="#">Subscription</a>
+                            <a href="#">Rental</a>
+                            <a href="#">Remarketing</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="3 Cycle: .." class="dropdown-input">
+                    <div class="dropdown">
+                        <button class="dropbtn">&#9660;</button>
+                        <div class="dropdown-content">
+                            <a href="#">Leasing</a>
+                            <a href="#">Subscription</a>
+                            <a href="#">Rental</a>
+                            <a href="#">Remarketing</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="4 Cycle: .." class="dropdown-input">
+                    <div class="dropdown">
+                        <button class="dropbtn">&#9660;</button>
+                        <div class="dropdown-content">
+                            <a href="#">Leasing</a>
+                            <a href="#">Subscription</a>
+                            <a href="#">Rental</a>
+                            <a href="#">Remarketing</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more input fields with dropdowns as needed -->
+            </div>
+            <div class="user-selected-utilization-inputs">
+                <p>User Selected Utilization:</p>
+                <div class="input-group">
+                    <input type="text" id="cycle1Input" placeholder="1 Cycle: ..">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="toggleDropdown('cycle1')">&#9660;</button>
+                        <div id="dropdown-cycle1" class="dropdown-content">
+                            <a href="#" class="dropdown-option">Leasing</a>
+                            <a href="#" class="dropdown-option">Subscription</a>
+                            <a href="#" class="dropdown-option">Rental</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="cycle2Input" placeholder="2 Cycle: ..">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="toggleDropdown('cycle2')">&#9660;</button>
+                        <div id="dropdown-cycle2" class="dropdown-content">
+                            <a href="#" class="dropdown-option">Leasing</a>
+                            <a href="#" class="dropdown-option">Subscription</a>
+                            <a href="#" class="dropdown-option">Rental</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="cycle3Input" placeholder="3 Cycle: ..">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="toggleDropdown('cycle3')">&#9660;</button>
+                        <div id="dropdown-cycle3" class="dropdown-content">
+                            <a href="#" class="dropdown-option">Leasing</a>
+                            <a href="#" class="dropdown-option">Subscription</a>
+                            <a href="#" class="dropdown-option">Rental</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="cycle4Input" placeholder="4 Cycle: ..">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="toggleDropdown('cycle4')">&#9660;</button>
+                        <div id="dropdown-cycle4" class="dropdown-content">
+                            <a href="#" class="dropdown-option">Leasing</a>
+                            <a href="#" class="dropdown-option">Subscription</a>
+                            <a href="#" class="dropdown-option">Rental</a>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="user-calculate-icon" onclick="calculate()">
+                    <img src="static\calculator-icon-2.png" alt="Calculator Icon" class="user-calculate-icon">
+                    <p>Calculate</p>
+                </div>
+
+                <!-- <button class="calculate-button" onclick="calculate()">Calculate</button> -->
+
+                <!-- Add more input fields with dropdowns as needed -->
+            </div>
+            <div id="left-response-container" class="left-response-container"></div>
+        </div>
+        <div class="right-div">
+            <div class="right-header">
+                <div class="right-header-text">Suggested Vehicle Lifecycle Utilization:</div>
+                <div class="right-header-rounded-field">Field1: Value1</div>
+                <div class="right-header-rounded-field">Field2: Value2</div>
+                <div class="right-header-rounded-field">Field3: Value3</div>
+                <div class="right-header-rounded-field">Field4: Value4</div>
+            </div>
+            <div class="right-content">
+                <div class="right-content-suggested-utilisation">
+                    <div class="suggested-utilisation-graph"></div>
+                    <div class="su-suggested-price"><span class ="label-heading"><b>Suggested Price</b></span>
+                        <span class="sp-label">$30000</span>
+                        <span class="sp-label">$30000</span>
+                        <span class="sp-label">$30000</span>
+                        <span class="sp-label">$30000</span>
+                    </div>
+                    <div class="su-competitor-price"><span class ="label-heading"><b>Competitor Pricing</b></span>
+                        <span class="cp-label">$20000</span>
+                        <span class="cp-label">$20000</span>
+                        <span class="cp-label">$20000</span>
+                        <span class="cp-label">$20000</span>
+                    </div>
+                </div>
+                <div class="right-content-user-suggested-utilisation">
+                    <div class="user-suggested-utilisation-graph"></div>
+                    <div class="su-user-suggested-price"><span class ="user-label-heading"><b>Suggested Price</b></span>
+                        <span class="user-sp-label">$20000</span>
+                        <span class="user-sp-label">$30000</span>
+                        <span class="user-sp-label">$25000</span>
+                        <span class="user-sp-label">$28000</span>
+                    </div>
+                    <div class="su-user-competitor-price"><span class ="user-label-heading"><b>Competitor Pricing</b></span>
+                        <span class="cp-label">$18000</span>
+                        <span class="cp-label">$22000</span>
+                        <span class="cp-label">$17000</span>
+                        <span class="cp-label">$20000</span>
+                    </div>
+                </div>
+                <!-- <div class="right-content-comparision-div"> -->
+                <div class="right-content-traditional-utilisation-graph">
+                    <div class="traditional-utilisation-graph"></div>
+                    <div class="tu-suggested-price"><span class ="user-label-heading"><b>Potential Price</b></span>
+                        <span class="tp-label">$30000</span>
+                        <span class="tp-label">$30000</span>
+                        <span class="tp-label">$30000</span>
+                        <span class="tp-label">$30000</span>
+                        </div>
+                    </div>
+                <div class="content-comparision-graph">
+                    <div class="comparision-heading">
+                        <h2>Comparison - Suggested vs Traditional Utilisation</h2>
+                    </div>
+                    <div class="comparison-container">
+                        <div class="comparison-column">
+                            <h3>Price</h3>
+                            <p>by Cycle</p>
+                        <div id="price-by-cycle-values"></div></div>
+                        <div class="comparison-column">
+                            <h3>Revenue</h3>
+                            <p>Total</p>
+                            <div id="revenue-values"></div>
+                        </div>
+                        <div class="comparison-column">
+                            <h2>Profit</h2>
+                            <h4>Total</h4>
+                            <div id="profit-values"></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

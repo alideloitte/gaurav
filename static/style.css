@@ -1,0 +1,491 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('BMW_Background_Picture.png'); /* Replace with the correct path to your background image */
+    background-size: cover; /* Ensure the background image covers the entire viewport */
+}
+
+.head-row {
+    background-color: #000000;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    width: auto; /* Set the width of your logo as needed */
+    height: 102px;
+    margin-left: 34px; /* Adjust the margin as needed to create space between the logo and the container */
+}
+
+.sub-header-row {
+    background-color: #ccc;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 
+.centered-content {
+    display: flex;
+    align-items: center;
+} */
+
+.rounded-input {
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 10px;
+    width: 500px;
+    font-size: 25px;
+}
+
+.submit-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 150px;
+    font-size: 25px;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+
+.main-content {
+    display: none;
+    flex: 1;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    margin-top: 12px;
+}
+
+.left-div {
+    width: 20%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    height: 100%; /* Occupy 100% of the height within the left div */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between content vertically */
+}
+.icon-buttons-container {
+    height: 10%; 
+    display: flex;
+    /* justify-content: space-between; Space the icon buttons equally */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+.icon-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    width: 50px; /* Set the width of the icon as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Spacing between icon and text */
+}
+
+.user-calculate-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px; /* Set the width of the icon as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+
+.previous-utilization-inputs {
+    height: 70%; 
+    /* margin-top: 20px; */
+}
+
+.previous-utilization-inputs p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.user-selected-utilization-inputs {
+    height: 70%; 
+    /* margin-top: 20px; */
+}
+
+.user-selected-utilization-inputs p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    width: calc(100% - 30px); /* Adjust the width as needed */
+    padding: 8px;
+    border-radius: 26px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #f9f9f9;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+.right-div {
+    width: 80%;
+    background-color: #ffffff;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-header {
+    background-color: #f4f4f4;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.right-header-text {
+    margin-right: 75px;
+    font-size: 23px;
+    margin-left: 16px;
+    margin-bottom: 20px;
+}
+
+.right-header-rounded-field {
+    background-color: #ffeead;
+    border-radius: 25px;
+    padding: 20px;
+    margin: 15px;
+    text-align: center;
+    font-weight: bold;
+    flex: 1; /* Make the rounded fields expand and take up remaining space */
+    font-size: 18px;
+}
+
+.right-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.right-content-suggested-utilisation{
+    width: 50%;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.suggested-utilisation-graph {
+    width: 58%; /* Set the width of the bar-chart.png image to 760% */
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+}
+.su-suggested-price, .su-competitor-price, .tu-suggested-price{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.tu-suggested-price>span{    
+    margin: 1rem;
+}
+.tu-suggested-price:last-child{
+    margin-bottom: 0;
+}
+.tu-suggested-price{
+    margin-top: 0;
+}
+.su-suggested-price>span, .su-competitor-price>span,.tu-suggested-price{
+    margin: 1rem;
+}
+.su-suggested-price:last-child, .su-competitor-price:last-child{
+    margin-bottom: 0;
+}
+.su-suggested-price:first-child, .su-competitor-price:first-child{
+    margin-top: 0;
+}
+.label-heading{
+    font-size: 16px;
+}
+.sp-label, .cp-label{
+    height: 4.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    justify-content: center;
+}
+.sp-label{
+    background-color: #1e1a1ac7;
+    color: #f9f9f9;
+
+}
+.cp-label{
+    background-color: #d0d0d0;
+    color: #4f4c4c;
+}
+.tp-label{
+    height: 4.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    justify-content: center;
+    background-color: #d0d0d0;
+    color: #4f4c4c;
+}
+
+.right-content-user-suggested-utilisation{
+    width: 50%;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.user-suggested-utilisation-graph {
+    width: 58%; /* Set the width of the bar-chart.png image to 760% */
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+}
+.su-user-suggested-price, .su-user-competitor-price, .tu-suggested-price {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.su-user-suggested-price>span, .su-user-competitor-price>span, .tu-suggested-price{
+    margin: 1rem;
+}
+.su-user-suggested-price:last-child, .su-user-competitor-price:last-child, .tu-suggested-price:last-child{
+    margin-bottom: 0;
+}
+.su-user-suggested-price:first-child, .su-user-competitor-price:first-child, .tu-suggested-price:first-child{
+    margin-top: 0;
+}
+.user-label-heading{
+    font-size: 16px;
+}
+.user-sp-label, .user-cp-label{
+    height: 4.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    justify-content: center;
+}
+.user-sp-label{
+    background-color: #4f4c4c;
+    color: #f9f9f9;
+
+}
+.user-cp-label{
+    background-color: #008000;
+    color: #f9f9f9;
+}
+
+
+.content-text {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.bars-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.bar {
+    height: 20px;
+    width: 50px;
+    background-color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.suggested-price {
+    background-color: #ffcc00; /* Different color for suggested price bars */
+}
+
+.competitor-price {
+    background-color: #ff0000; /* Different color for competitor price bars */
+}
+
+.suggested-utilisation-graph{
+    flex-basis: 100%; /* Make this div cover 100% of the width */
+    margin: 1%; /* Add some margin */
+    text-align: center;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.response-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 80%; /* Set a maximum width for the container */
+}
+
+.rounded-field {
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    flex-basis: calc(16.666% - 40px); /* 16.666% accounts for 6 fields with 2*10px margins */
+    box-sizing: border-box;
+    text-align: center;
+
+}
+
+.field-key {
+    font-weight: bold;
+    font-size: 24px; /* Make the keys bold */
+}
+
+.field-value {
+    font-size: 24px;
+    /* Styles for non-bold values */
+}
+
+.bar {
+    width: 20px;
+    background-color: #4CAF50;
+    margin-right: 10px;
+    transition: height 0.5s;
+}
+
+.left-response-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 80%; /* Set a maximum width for the container */
+}
+
+.left-rounded-field {
+    background-color: #949494;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    width: 100%; /* Occupy 100% width within the left div */
+}
+
+.right-content-traditional-utilisation-graph{
+    width: 50%;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.traditional-utilisation-graph {
+    width: 58%; /* Set the width of the bar-chart.png image to 760% */
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+}
+
+.content-comparision-graph{
+    width: 50%;
+    text-align: center; /* Center align the main heading */
+    /* flex-direction: column; */
+}
+.comparison-heading {
+    margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+.comparison-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comparison-column {
+    flex-basis: 30%;
+    background-color: #ccc;
+    padding: 10px;
+    /* flex: 1; */
+    box-sizing: border-box;
+    margin: 10px;
+    text-align: center;
+
+    /* margin-right: 10px; Adjust margin as needed */
+}
+.profit-amount {
+    color: #4CAF50; /* Light green color */
+    font-size: 28px; /* Adjust the font size as needed */
+}
+
+.profit-percentage {
+    font-size: 24px; /* Adjust the font size as needed */
+}
+
+.revenue-amount {
+    color: #4CAF50; /* Light green color */
+    font-size: 28px; /* Adjust the font size as needed */
+}
+
+.revenue-percentage {
+    font-size: 24px; /* Adjust the font size as needed */
+}
+
+.cycle-values {
+    display: inline-block;
+    margin-right: 20px; /* Adjust as needed for spacing */
+}
+
+.cycle-revenue-amount {
+    color: #00cc00; /* Light green color */
+    font-size: 18px; /* Adjust as needed */
+}
+
+.cycle-revenue-percentage {
+    font-size: 14px; /* Adjust as needed */
+}
